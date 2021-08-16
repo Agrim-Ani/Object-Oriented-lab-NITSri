@@ -9,4 +9,5 @@ int main(){
     cout<<100<<endl;
     cout<<setfill('#')<<setw(10);
     cout<<"HEY!";
+    return 0;
 }

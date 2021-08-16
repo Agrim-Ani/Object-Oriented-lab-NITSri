@@ -7,18 +7,18 @@ class Student_Info{
     char student_name[50], grade[2];
 
     public:
-        void read_data(int count){
-            cout<<"\n\n--------- Enter student "<<count+1<<" information ---------\n";
+        void read_data(int x){
+            cout<<"student "<<x+1<<" information \n";
             cout<<"Name of the Student : ";
             cin>>student_name;
             cout<<"Roll Number: ";
             cin>>roll_number;
-            cout<<"Grade (O, A+, A, B+, B, C, D, F): ";
+            cout<<"Grade : ";
             cin>>grade;
-            cout<<"\nStudent information with roll number "<<roll_number<<" has saved!";
-        }
-        void display_data(int count){
-            cout<<"\n\n Student "<<count+1<<" Information ";
+           
+            }
+        void display_data(int x){
+            cout<<"\n\n Student "<<x+1<<" Information ";
             cout<<"\nName of the Student: "<<student_name;
             cout<<"\nRoll Number: "<<roll_number;
             cout<<"\nGrade : "<<grade;
