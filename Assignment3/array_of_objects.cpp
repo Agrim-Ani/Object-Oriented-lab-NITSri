@@ -15,7 +15,7 @@ public:
         cin>>name;
     }
     void display(int i){
-        cout<<"Name of student "<<i<<"is "<<name;
+        cout<<"Name of student "<<i+1<<" is "<<name<<endl;
     }
 };
 
@@ -25,6 +25,7 @@ int main(){
     {
         st[i].get(i);
         st[i].display(i);
+        cout<<endl;
     }
 
     return 0;

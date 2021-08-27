@@ -20,7 +20,7 @@ public:
    void getinfo(){
         cout<<"Enter name: "; 
         cin>>name;
-        
+
         cout<<"Enter city: "; 
         cin>>city;
       
