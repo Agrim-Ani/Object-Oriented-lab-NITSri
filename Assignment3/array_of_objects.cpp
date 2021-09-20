@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
 int i;
 class student{
@@ -10,6 +11,7 @@ public:
         name = new char[50];
 
     }
+    
     void get(int i){
         cout<<"Enter name of student "<<i+1<<" ";
         cin>>name;
