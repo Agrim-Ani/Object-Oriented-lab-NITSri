@@ -62,4 +62,5 @@ cin>>a;
     cout<<"Original Number: "<<b<<endl;
     d--;
     cout<<"After Applying -- Operator: "<<d<<endl;
-return 0; }
+    return 0; 
+}
