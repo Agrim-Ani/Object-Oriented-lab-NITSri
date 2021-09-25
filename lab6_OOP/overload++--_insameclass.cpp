@@ -11,15 +11,16 @@ return is; }
 }
 public:
     Interger(int n = 0) {
-num = n; }
-// Prefix
+    num = n; 
+}
+
     Interger operator ++ () {
         return ++num;
     }
     Interger operator -- () {
         return --num;
     }
-// Postfix
+
     Interger operator ++ (int) {
         return num++;
     }
