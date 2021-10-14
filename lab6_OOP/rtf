@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>matrix.cpp</title>
+<link rel="stylesheet" type="text/css" href="highlight.css">
+</head>
+<body class="hl">
+<pre class="hl"><span class="hl ppc">#include &lt;iostream&gt;</span>
+<span class="hl kwa">using namespace</span> std<span class="hl opt">;</span>
+<span class="hl kwd">class</span> Matrix 
+<span class="hl opt">{</span>
+<span class="hl kwd">private</span><span class="hl opt">:</span>
+    <span class="hl kwb">int</span> <span class="hl opt">**</span>matrix<span class="hl opt">;</span>
+    <span class="hl kwb">int</span> <span class="hl opt">**</span>temp<span class="hl opt">;</span>
+    <span class="hl kwb">int</span> m<span class="hl opt">,</span> n<span class="hl opt">;</span>
+    <span class="hl kwb">void</span> <span class="hl kwd">transpose</span><span class="hl opt">()</span> 
+    <span class="hl opt">{</span>
+        temp <span class="hl opt">=</span> matrix<span class="hl opt">;</span>
+        matrix <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">int</span><span class="hl opt">*[</span>n<span class="hl opt">];</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>n<span class="hl opt">;</span> i<span class="hl opt">++)</span>
+            matrix<span class="hl opt">[</span>i<span class="hl opt">] =</span> <span class="hl kwa">new</span> <span class="hl kwb">int</span><span class="hl opt">[</span>m<span class="hl opt">];</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>n<span class="hl opt">;</span> i<span class="hl opt">++)</span>
+            <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> j<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> j<span class="hl opt">&lt;</span>m<span class="hl opt">;</span> j<span class="hl opt">++)</span>
+                matrix<span class="hl opt">[</span>i<span class="hl opt">][</span>j<span class="hl opt">] =</span> temp<span class="hl opt">[</span>j<span class="hl opt">][</span>i<span class="hl opt">];</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>m<span class="hl opt">;</span> i<span class="hl opt">++)</span>
+            <span class="hl kwa">delete</span> <span class="hl opt">[]</span> temp<span class="hl opt">[</span>i<span class="hl opt">];</span>
+        <span class="hl kwa">delete</span> <span class="hl opt">[]</span> temp<span class="hl opt">;</span>
+        m <span class="hl opt">=</span> m<span class="hl opt">+</span>n<span class="hl opt">;</span>
+        n <span class="hl opt">=</span> m<span class="hl opt">-</span>n<span class="hl opt">;</span>
+        m <span class="hl opt">=</span> m<span class="hl opt">-</span>n<span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+<span class="hl kwd">public</span><span class="hl opt">:</span>
+    <span class="hl kwd">Matrix</span><span class="hl opt">(</span><span class="hl kwb">int</span> a <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">,</span> <span class="hl kwb">int</span> b <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">)</span> 
+    <span class="hl opt">{</span>
+        matrix <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">int</span><span class="hl opt">*[</span>a<span class="hl opt">];</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>a<span class="hl opt">;</span> i<span class="hl opt">++)</span>
+            matrix<span class="hl opt">[</span>i<span class="hl opt">] =</span> <span class="hl kwa">new</span> <span class="hl kwb">int</span><span class="hl opt">[</span>b<span class="hl opt">];</span>
+        m <span class="hl opt">=</span> a<span class="hl opt">;</span>
+        n <span class="hl opt">=</span> b<span class="hl opt">;</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>m<span class="hl opt">;</span> i<span class="hl opt">++)</span> 
+        <span class="hl opt">{</span>
+            <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> j<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> j<span class="hl opt">&lt;</span>n<span class="hl opt">;</span> j<span class="hl opt">++)</span> 
+            <span class="hl opt">{</span>
+                matrix<span class="hl opt">[</span>i<span class="hl opt">][</span>j<span class="hl opt">] =</span> <span class="hl num">0</span><span class="hl opt">;</span>
+            <span class="hl opt">}</span>
+        <span class="hl opt">}</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwb">void</span> <span class="hl kwd">operator</span> <span class="hl opt">~ () {</span>
+        <span class="hl kwd">transpose</span><span class="hl opt">();</span>
+<span class="hl opt">}</span>
+    <span class="hl kwb">void</span> <span class="hl kwd">set</span><span class="hl opt">(</span><span class="hl kwb">int</span> a<span class="hl opt">,</span> <span class="hl kwb">int</span> b<span class="hl opt">,</span> <span class="hl kwb">int</span> c<span class="hl opt">) {</span>
+        matrix<span class="hl opt">[</span>b<span class="hl opt">][</span>c<span class="hl opt">] =</span> a<span class="hl opt">;</span>
+<span class="hl opt">}</span>
+    <span class="hl kwb">int</span> <span class="hl kwd">get</span><span class="hl opt">(</span><span class="hl kwb">int</span> a<span class="hl opt">,</span> <span class="hl kwb">int</span> b<span class="hl opt">) {</span>
+        <span class="hl kwa">return</span> matrix<span class="hl opt">[</span>a<span class="hl opt">][</span>b<span class="hl opt">];</span>
+<span class="hl opt">}</span>
+    <span class="hl kwb">int</span> <span class="hl kwd">rows</span><span class="hl opt">() {</span>
+        <span class="hl kwa">return</span> m<span class="hl opt">;</span>
+<span class="hl opt">}</span>
+    <span class="hl kwb">int</span> <span class="hl kwd">columns</span><span class="hl opt">() {</span>
+        <span class="hl kwa">return</span> n<span class="hl opt">;</span>
+<span class="hl opt">}</span>
+    <span class="hl kwb">void</span> <span class="hl kwd">print</span><span class="hl opt">()</span> 
+    <span class="hl opt">{</span>
+        <span class="hl kwa">if</span> <span class="hl opt">(</span>m<span class="hl opt">==</span><span class="hl num">0</span> <span class="hl opt">||</span> n<span class="hl opt">==</span><span class="hl num">0</span><span class="hl opt">)</span> 
+        <span class="hl opt">{</span>
+            cout<span class="hl opt">&lt;&lt;</span><span class="hl sng">&quot;Matrix is empty!&quot;</span><span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">;</span>
+            <span class="hl kwa">return</span><span class="hl opt">;</span> 
+        <span class="hl opt">}</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>m<span class="hl opt">;</span> i<span class="hl opt">++)</span> 
+        <span class="hl opt">{</span>
+            <span class="hl kwa">if</span> <span class="hl opt">(</span>n<span class="hl opt">&gt;</span><span class="hl num">0</span><span class="hl opt">)</span>
+                cout<span class="hl opt">&lt;&lt;</span>matrix<span class="hl opt">[</span>i<span class="hl opt">][</span><span class="hl num">0</span><span class="hl opt">];</span>
+            <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> j<span class="hl opt">=</span><span class="hl num">1</span><span class="hl opt">;</span> j<span class="hl opt">&lt;</span>n<span class="hl opt">;</span> j<span class="hl opt">++)</span> 
+            <span class="hl opt">{</span>
+            cout<span class="hl opt">&lt;&lt;</span><span class="hl sng">&quot;, &quot;</span><span class="hl opt">&lt;&lt;</span>matrix<span class="hl opt">[</span>i<span class="hl opt">][</span>j<span class="hl opt">];</span>
+           
+            <span class="hl opt">}</span>
+             cout<span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">;</span>
+        <span class="hl opt">}</span>
+            cout<span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">;</span>
+
+   <span class="hl opt">}</span>
+<span class="hl opt">};</span>
+<span class="hl kwb">int</span> <span class="hl kwd">main</span><span class="hl opt">() {</span>
+<span class="hl kwb">int</span> m<span class="hl opt">,</span> n<span class="hl opt">;</span>
+    cout<span class="hl opt">&lt;&lt;</span><span class="hl sng">&quot;Enter Matrix Rows: &quot;</span><span class="hl opt">;</span>
+    cin<span class="hl opt">&gt;&gt;</span>m<span class="hl opt">;</span>
+    cout<span class="hl opt">&lt;&lt;</span><span class="hl sng">&quot;Enter Matrix Columns: &quot;</span><span class="hl opt">;</span>
+    cin<span class="hl opt">&gt;&gt;</span>n<span class="hl opt">;</span>
+    Matrix <span class="hl kwd">mtx</span><span class="hl opt">(</span>m<span class="hl opt">,</span> n<span class="hl opt">);</span>
+    <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> i<span class="hl opt">&lt;</span>m<span class="hl opt">;</span> i<span class="hl opt">++)</span> 
+    <span class="hl opt">{</span>
+
+    <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> j<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span> j<span class="hl opt">&lt;</span>n<span class="hl opt">;</span> j<span class="hl opt">++)</span> 
+<span class="hl opt">{</span>
+    mtx<span class="hl opt">.</span><span class="hl kwd">set</span><span class="hl opt">(</span>i<span class="hl opt">*</span>j<span class="hl opt">+</span>i<span class="hl opt">+</span>j<span class="hl opt">,</span> i<span class="hl opt">,</span> j<span class="hl opt">);</span>
+<span class="hl opt">}</span> 
+<span class="hl opt">}</span>
+    cout<span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">&lt;&lt;</span><span class="hl sng">&quot;Matrix Before Applying ~ Operator:&quot;</span><span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">;</span>
+    mtx<span class="hl opt">.</span><span class="hl kwd">print</span><span class="hl opt">();</span>
+    <span class="hl opt">~</span>mtx<span class="hl opt">;</span>
+    cout<span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">&lt;&lt;</span><span class="hl sng">&quot;Matrix After Applying ~ Operator:&quot;</span><span class="hl opt">&lt;&lt;</span>endl<span class="hl opt">;</span>
+    mtx<span class="hl opt">.</span><span class="hl kwd">print</span><span class="hl opt">();</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 4.1, http://www.andre-simon.de/-->

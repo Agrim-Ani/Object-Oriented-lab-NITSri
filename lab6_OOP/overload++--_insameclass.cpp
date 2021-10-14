@@ -27,6 +27,10 @@ public:
     Interger operator -- (int) {
         return num--;
     }
+    for(x=i){
+        
+    }
+
 };
 int main() {
     Interger a, b, c, d;
