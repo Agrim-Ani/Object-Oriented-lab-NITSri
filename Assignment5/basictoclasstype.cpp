@@ -38,7 +38,7 @@ int main()
 {
     // Object of Time class
     Time T1;
-    int dur = 95;
+    int dur = 22;
  
     // Conversion of int type to
     // class type
